@@ -1,0 +1,34 @@
+import java.io.*;
+import java.util.*;
+
+class UserMainCode
+{
+    public int NthPrime(int input1)
+    {
+        int count = 0;
+        int num = 2;
+
+        while(true)
+        {
+            boolean prime = true;
+
+            for(int i = 2; i <= Math.sqrt(num); i++)
+            {
+                if(num % i == 0)
+                {
+                    prime = false;
+                    break;
+                }
+            }
+
+            if(prime)
+            {
+                count++;
+                if(count == input1)
+                    return num;
+            }
+
+            num++;
+        }
+    }
+}
