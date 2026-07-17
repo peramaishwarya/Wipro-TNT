@@ -1,0 +1,29 @@
+import java.io.*;
+import java.util.*;
+
+class UserMainCode
+{
+    public int isPalinNumPossible(int input1)
+    {
+        int[] freq = new int[10];
+
+        while(input1 > 0)
+        {
+            freq[input1 % 10]++;
+            input1 /= 10;
+        }
+
+        int odd = 0;
+
+        for(int i = 0; i < 10; i++)
+        {
+            if(freq[i] % 2 != 0)
+                odd++;
+        }
+
+        if(odd <= 1)
+            return 2;
+        else
+            return 1;
+    }
+}
