@@ -1,0 +1,19 @@
+import java.io.*;
+import java.util.*;
+
+class UserMainCode
+{
+    public int countOdds(int input1, int input2, int input3, int input4, int input5)
+    {
+        int count = 0;
+        int[] arr = {input1, input2, input3, input4, input5};
+
+        for(int n : arr)
+        {
+            if(n % 2 != 0)
+                count++;
+        }
+
+        return count;
+    }
+}
