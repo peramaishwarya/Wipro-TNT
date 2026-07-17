@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+
+class UserMainCode
+{
+    public int digitSum(int input1)
+    {
+        int sign = 1;
+
+        if(input1 < 0)
+        {
+            sign = -1;
+            input1 = -input1;
+        }
+
+        while(input1 >= 10)
+        {
+            int sum = 0;
+
+            while(input1 > 0)
+            {
+                sum += input1 % 10;
+                input1 = input1 / 10;
+            }
+
+            input1 = sum;
+        }
+
+        return sign * input1;
+    }
+}
