@@ -1,0 +1,42 @@
+import java.io.*;
+import java.util.*;
+
+class UserMainCode {
+
+    public String identifyPossibleWords(String input1, String input2) {
+        input1 = input1.toUpperCase();
+        String[] words = input2.split(":");
+        StringBuilder result = new StringBuilder();
+
+        for (String word : words) {
+            String upperWord = word.toUpperCase();
+
+            if (upperWord.length() == input1.length()) {
+                boolean isMatch = true;
+
+                for (int i = 0; i < input1.length(); i++) {
+                    char ch1 = input1.charAt(i);
+                    char ch2 = upperWord.charAt(i);
+
+                    if (ch1 != '_' && ch1 != ch2) {
+                        isMatch = false;
+                        break;
+                    }
+                }
+
+                if (isMatch) {
+                    if (result.length() > 0) {
+                        result.append(":");
+                    }
+                    result.append(upperWord);
+                }
+            }
+        }
+
+        if (result.length() == 0) {
+            return "ERROR-009";
+        }
+
+        return result.toString();
+    }
+}
